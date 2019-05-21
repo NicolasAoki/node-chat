@@ -8,7 +8,7 @@ app.set('view engine', 'hbs');
 app.use(express.urlencoded({extended:false}));
 
 // Verificar como utilizar documento estatico para assets
-// app.use('/assets/img', express.static('public'));
+app.use(express.static(path.join(__dirname, 'assets/')));
 
 var loginRouter = require('./routes/login');
 

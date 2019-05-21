@@ -5,7 +5,7 @@
     <body>
         <nav class="navbar navbar-light bg-light">
             <a class="navbar-brand" href="#">
-                <img src="assets/img/chat.png" width="30" height="30" class="d-inline-block align-top" alt=""/>
+                <img src="/img/chat.png" width="30" height="30" class="d-inline-block align-top" alt=""/>
                     Bootstrap
             </a>
         </nav>
@@ -13,13 +13,12 @@
             <div class="row">
                 <form action="./entrar" method="post">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Email</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" name="loginUser" aria-describedby="emailHelp" placeholder="exemplo@abc.com">
-                        <small id="emailHelp" class="form-text text-muted">Seus dados são restritos</small>
+                        <label for="inputUsername">Usuario</label>
+                        <input type="text" class="form-control" id="inputUsername" name="loginUser">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Senha</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" name="senhaUser">
+                        <label for="inputPassword">Senha</label>
+                        <input type="password" class="form-control" id="inputPassword" name="senhaUser">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>

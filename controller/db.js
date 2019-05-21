@@ -6,3 +6,7 @@ mongoClient.connect('mongodb://localhost:27017/mongo-web', { useNewUrlParser: tr
         if (err) return console.log('Não conectou ao banco' + err);
         global.db = conn.db('mongo-web');
     });
+
+
+
+module.exports = {}
