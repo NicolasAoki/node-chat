@@ -7,8 +7,8 @@ mongoClient.connect('mongodb://localhost:27017/chatIndividual', { useNewUrlParse
         global.db = conn.db('chatIndividual');
     });
 
-function saveUser(name, passWord, callback) {
-    global.db.collection('user').insert({ name,  passWord }, function (err, result) {
+function saveUser(name, password, callback) {
+    global.db.collection('user').insert({ name,  password }, function (err, result) {
         if (err) return console.log("Erro ao salvar usuario" + err);
         callback();
     });

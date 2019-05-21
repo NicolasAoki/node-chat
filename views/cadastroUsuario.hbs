@@ -6,12 +6,14 @@
         <nav class="navbar navbar-light bg-light">
             <a class="navbar-brand" href="/">
                 <img src="/img/chat.png" width="30" height="30" class="d-inline-block align-top" alt=""/>
-                    Bootstrap
+                    ChatMVP   {{title}}
             </a>
         </nav>
         <div class="container">
             <div class="row">
+             
                 <form action="./cadastrarUsuario" method="post">
+                    
                     <div class="form-group">
                         <label for="inputUsername">User</label>
                         <input type="text" class="form-control" id="inputUsername" name="loginUser">
@@ -22,6 +24,7 @@
                     </div>
                     <button class="btn btn-info">Cadastrar</button>
                 </form>
+                {{warning}}
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

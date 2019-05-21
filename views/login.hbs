@@ -6,15 +6,16 @@
         <nav class="navbar navbar-light bg-light">
             <a class="navbar-brand" href="/">
                 <img src="/img/chat.png" width="30" height="30" class="d-inline-block align-top" alt=""/>
-                    Chat-mvp
+                    ChatMVP {{title}}
             </a>
         </nav>
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    {{!-- Setado em login.js model --}}
-                    {{title}}
                     <form action="./entrar" method="post">
+                     {{!-- Setado em login.js model 
+                            Recebe os avisos de validacao do login--}}
+                  
                         <div class="form-group">
                             <label for="inputUsername">User</label>
                             <input type="text" class="form-control" id="inputUsername" name="loginUser">
@@ -25,9 +26,7 @@
                         </div>
                         <button type="submit" class="btn btn-primary">Entrar</button>
                     </form>
-                     {{!-- Setado em login.js model 
-                            Recebe os avisos de validacao do login--}}
-                    {{warning}}
+                      {{warning}}
                     <a class="btn btn-info" href="/cadastrar">Cadastrar</a>
                 
                 </div>

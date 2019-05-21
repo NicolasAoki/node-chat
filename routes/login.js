@@ -8,7 +8,21 @@ router.get('/', (req,res)=>{
 router.get('/cadastrar', (req,res)=>{
     res.render('cadastroUsuario');
 });
-router.get('/cadastrarUsuario', (req,res)=>{
+router.post('/cadastrarUsuario', (req,res)=>{
+    var name = req.body.loginUser;
+    var password = req.body.senhaUser;
+    console.log(name+password);
+    if(!name.trim() || !password.trim()){
+        res.render('cadastroUsuario', { title: 'Cadastrar', warning: 'Preencha todos os campos!' });
+    }
+    loginDAO.checkUser(name, function (docs) {
+        if(docs){
+          res.render('login', { title: 'Cadastrar', warning: 'Usuario ja existe!!'});
+        } else{
+            loginDAO.saveUser(name, password,
+            function () { res.render('login',{title: 'Login', warning: 'registrado com sucesso!'}) });
+        }  
+      });
     
 });
 
