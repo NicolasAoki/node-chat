@@ -5,6 +5,12 @@ var loginDAO =  require('../model/login');
 router.get('/', (req,res)=>{
     res.render('login');
 });
+router.get('/cadastrar', (req,res)=>{
+    res.render('cadastroUsuario');
+});
+router.get('/cadastrarUsuario', (req,res)=>{
+    
+});
 
 router.post('/entrar', (req,res)=>{
     var name = req.body.loginUser;
