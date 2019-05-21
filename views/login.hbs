@@ -4,14 +4,16 @@
     </head>
     <body>
         <nav class="navbar navbar-light bg-light">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/">
                 <img src="/img/chat.png" width="30" height="30" class="d-inline-block align-top" alt=""/>
-                    Bootstrap
+                    Chat-mvp
             </a>
         </nav>
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
+                    {{!-- Setado em login.js model --}}
+                    {{title}}
                     <form action="./entrar" method="post">
                         <div class="form-group">
                             <label for="inputUsername">User</label>
@@ -23,6 +25,9 @@
                         </div>
                         <button type="submit" class="btn btn-primary">Entrar</button>
                     </form>
+                     {{!-- Setado em login.js model 
+                            Recebe os avisos de validacao do login--}}
+                    {{warning}}
                     <a class="btn btn-info" href="/cadastrar">Cadastrar</a>
                 
                 </div>

@@ -31,7 +31,7 @@ function checkUser(logName, callback) {
 }
 
 function checkPasswordUser(logName, logPassword, callback) {
-    console.log('function'+logName+logPassword);
+    
     global.db.collection('user').find({ name: logName, password: logPassword }).count(function (err, docs) {
         if (err) return console.log("Erro ao verificar usuario e senha" + err);
         callback(docs);
