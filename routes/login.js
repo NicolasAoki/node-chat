@@ -37,7 +37,7 @@ router.post('/entrar', (req,res)=>{
         loginDAO.checkPasswordUser(name, password, function (docs) {
             if(docs){
                 res.cookie('login',name);
-                res.redirect('chat');
+                res.redirect('chat/'+name);
                 return;
             } else{
                 
