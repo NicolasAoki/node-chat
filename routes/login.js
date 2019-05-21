@@ -14,15 +14,16 @@ router.post('/cadastrarUsuario', (req,res)=>{
     console.log(name+password);
     if(!name.trim() || !password.trim()){
         res.render('cadastroUsuario', { title: 'Cadastrar', warning: 'Preencha todos os campos!' });
+    }else{
+        loginDAO.checkUser(name, function (docs) {
+            if(docs){
+              res.render('login', { title: 'Cadastrar', warning: 'Usuario ja existe!!'});
+            } else{
+                loginDAO.saveUser(name, password,
+                function () { res.render('login',{title: 'Login', warning: 'registrado com sucesso!'}) });
+            }  
+          });
     }
-    loginDAO.checkUser(name, function (docs) {
-        if(docs){
-          res.render('login', { title: 'Cadastrar', warning: 'Usuario ja existe!!'});
-        } else{
-            loginDAO.saveUser(name, password,
-            function () { res.render('login',{title: 'Login', warning: 'registrado com sucesso!'}) });
-        }  
-      });
     
 });
 
@@ -30,20 +31,20 @@ router.post('/entrar', (req,res)=>{
     var name = req.body.loginUser;
     var password = req.body.senhaUser;
     console.log(name+password);
-    if(!name || !password){
+    if(!name.trim() || !password.trim()){
         res.render('login', { title: 'Login', warning: 'Preencha todos os campos!' });
+    }else{
+        loginDAO.checkPasswordUser(name, password, function (docs) {
+            if(docs){
+                res.cookie('login',name);
+                res.redirect('chat');
+                return;
+            } else{
+                
+                res.render('login', { title: 'Login', warning: 'Dados incorretos'});
+            }  
+        });
     }
-    loginDAO.checkPasswordUser(name, password, function (docs) {
-        if(docs){
-            res.cookie('login',name);
-            //res.redirect('/chat/'+name+" "+name);
-            res.redirect('chat');
-            return;
-        } else{
-            
-            res.render('login', { title: 'Login', warning: 'Dados incorretos'});
-        }  
-    });
 });
 
 
